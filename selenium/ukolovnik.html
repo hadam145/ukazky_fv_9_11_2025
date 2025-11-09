@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Úkolovník</title>
+  <style>
+    body { font-family: sans-serif; margin: 40px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 5px 0; }
+    button { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Úkolovník</h1>
+  <input type="text" id="ukol" placeholder="Zadej úkol">
+  <button id="pridat">Přidat</button>
+
+  <ul id="seznam"></ul>
+
+  <script>
+    const input = document.getElementById('ukol');
+    const button = document.getElementById('pridat');
+    const seznam = document.getElementById('seznam');
+
+    button.addEventListener('click', () => {
+      const text = input.value.trim();
+      if (!text) return;
+      const li = document.createElement('li');
+      li.textContent = text;
+      const del = document.createElement('button');
+      del.textContent = 'Smazat';
+      del.addEventListener('click', () => li.remove());
+      li.appendChild(del);
+      seznam.appendChild(li);
+      input.value = '';
+    });
+  </script>
+</body>
+</html>
