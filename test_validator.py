@@ -8,7 +8,7 @@ class TestValidatorHesla(TestCase):
 
     def test_kratke_heslo(self):
         validator = ValidatorHesla()
-        self.assertFalse(validator.validuj("ab1"))
+        self.assertFalse(validator.validuj("ab2"))
 
     def test_heslo_bez_cislice(self):
         validator = ValidatorHesla()
